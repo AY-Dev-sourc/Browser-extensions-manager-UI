@@ -14,12 +14,23 @@
     --Red500: hsl(3, 71%, 56%);
     --Red700: hsl(3, 77%, 44%);
     /* Gradient Colors */
-    --LightGradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
-    --DarkGradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+    --Gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
     /* font Weight's */
     --Weight400: 400;
     --Weight500: 500;
     --Weight700: 700;
+}
+.lightmode{
+    /* light mode */
+    --Neutral900: hsl(226, 11%, 37%);
+    --Neutral800: hsl(0, 0%, 93%);
+    --Neutral700: hsl(217, 61%, 90%);
+    --Neutral600: hsl(0, 0%, 78%);
+    --Neutral300: hsl(226, 11%, 37%);
+    --Neutral200: hsl(225, 23%, 24%);
+    --Neutral100: hsl(226, 25%, 17%);
+    --Neutral0: hsl(227, 75%, 14%);
+    --Gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
 }
 * {
     padding: 0%;
@@ -29,7 +40,7 @@
 }
 /* ---LAYOUT--- */
 body{
-    background: var(--DarkGradient) no-repeat center ;
+    background: var(--Gradient) no-repeat center ;
 }
 /* layout */
 .container{
@@ -70,11 +81,15 @@ body{
 .light{
     width: 3em;
     height: 3em;
+    outline: none;
+    border: none;
     background-color: var(--Neutral700);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 0.5em;
+    cursor: pointer;
+    transition: 0.4s;
 }
 /* hero Layout */
 .hero-title{
@@ -119,7 +134,7 @@ body{
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 30%; /* */
+    height: 30%; /* !!! */
 }
 article{
     display: flex;
@@ -138,16 +153,21 @@ article{
     width: auto;
     display: block;
 }
+/* active light button */
+.lightActive{
+    border: none;
+}
 .hero-title h1{
     color: var(--Neutral0);
 }
 .buttons button{
     outline: none;
     border: 1px solid var(--Neutral300);
-    background-color: var(--Neutral600);
+    background-color: var(--Neutral700);
     color: var(--Neutral100);
     border-radius: 1em;
     cursor: pointer;
+    transition: 0.4s;
 }
 
 .buttons button:nth-child(1){
@@ -173,14 +193,14 @@ article{
     gap: 0.5em;
 }
 .icon{
-    width: 50%;
-    height: 50%;
+    width: 40%;
+    height: 40%;
 }
 .icon img{
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
 }
 .card-title{
     color: var(--Neutral100);
@@ -201,49 +221,105 @@ article{
     outline: none;
     border: 2px solid var(--Neutral800);
     border-radius: 1em;
+    cursor: pointer;
+    transition: 0.6s;
 }
 .switch {
     position: relative;
     display: inline-block;
-    width: 20%;
-    height: 70%;
-    border-radius: 1em;
+    width: 50px;
+    height: 24px;
 }
-.switch input[type='radio'] {
+.switch input {
     opacity: 0;
-    height: 0;
     width: 0;
+    height: 0;
 }
-.slider{
+.slider {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    cursor: pointer;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     background-color: var(--Neutral700);
-    border-radius: inherit;
-    box-shadow: 1px 1px 4px var(--Neutral800);
-    cursor: pointer;
+    border-radius: 34px;
+    transition: background-color 0.3s;
 }
-.switch::before{
+.slider::before {
+    content: "";
     position: absolute;
-    content: '';
-    left: 20%;
-    top: 50%;
-    transform: translate(-20%,-50%);
-    height: 60%;
-    width: 30%;
-    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
     background-color: var(--Neutral100);
-    padding: 1px;
-    z-index: 1;
-    transition: 0.3s;
+    border-radius: 50%;
+    transition: transform 0.3s;
 }
-.switch .input:checked + .slider{
+
+input:checked + .slider {
     background-color: var(--Red400);
 }
-.switch .input:checked + .switch::before{
-    transform: translateX(90%);
+
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
+/* ---effect--- */
+.light:hover{
+    background-color: var(--Neutral600);
+}
+.light:focus{
+    border: 2px solid var(--Red400);
+}
+.buttons button:hover{
+    background-color: var(--Neutral600);
+}
+.buttons button:focus{
+    border: 2px solid var(--Red400);
+}
+.buttons button:active{
+    background-color: var(--Red500);
+    border-radius: 1em;
+}
+/* active btn */
+.buttonActive{
+    background-color: var(--Red700);
+}
+.remove:hover{
+    background-color: var(--Red500);
+    box-sizing: 3px 3px 4px var(--Red400);
+}
+.remove:focus{
+    background-color: var(--Neutral600);
+    border: 2px solid var(--Red500);
+}
+/* active remove */
+.removeActive{
+    border: var(--Neutral600);
+    background: inherit;
+}
+.slider:hover{
+    background: var(--Neutral800);
+}
+input:checked + .slider:hover {
+    background-color: var(--Red500);
+}
+.slider:focus{
+    border: 2px solid var(--Red400);
+}
+input:checked:active + .slider {
+    border: 2px solid var(--Red700);
+}
+/* switch */
+.light img:last-child{
+    display: none;
+}
+.lightmode .light img{
+    display: none;
+}
+.lightmode .light img:last-child{
+    display: block;
 }
 
 /* ipad  screen */
@@ -284,14 +360,9 @@ article{
     .cards{
         grid-template: repeat(4,1fr)/repeat(3,1fr); /* 4 rows 3columns */
     }
-        .buttons{
+    .buttons{
         width: 18%;
         height: 2.2em;
         padding: 0;
-    }
-    /* hero style */
-    .icon{
-        width: 40%;
-        height: 40%;
     }
 }
