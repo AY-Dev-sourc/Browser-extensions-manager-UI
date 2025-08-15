@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Browser extensions manager UI</title>
 </head>
@@ -14,9 +14,10 @@
       <figure class="intro-logo">
           <img src="./images/logo.svg" alt="logo">
       </figure>
-      <figure class="light">
+      <button class="light" id="switch">
         <img src="./images/icon-sun.svg" alt="sun">
-      </figure>
+        <img src="./images/icon-moon.svg" alt="moon">
+      </button>
     </header>
     <!-- hero section -->
     <section class="hero">
@@ -24,14 +25,14 @@
       <div class="hero-title">
         <h1>Extensions List</h1>
         <div class="buttons">
-          <button type="button">All</button>
-          <button type="button">Active</button>
-          <button type="button">Inactive</button>
+          <button type="button" id="AllCard">All</button>
+          <button type="button" id="ActiveCard">Active</button>
+          <button type="button" id="InactiveCard">Inactive</button>
         </div>
       </div>
       <!-- hero cards container -->
-      <div class="cards">
-        <div class="card">
+      <div class="cards" id="container">
+        <!-- <div class="card">
           <div class="sub-title">
             <figure class="icon">
               <img src="./images/logo-devlens.svg" alt="">
@@ -47,249 +48,11 @@
           <div class="controler">
             <button class="remove">Remove</button>
             <div class="switch">
-              <input type="radio" name="" id="">
+              <input type="radio">
               <div class="slider"></div>
             </div>
           </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-style-spy.svg" alt="StyleSpy">
-            </figure>
-            <article>
-              <h1 class="card-title">StyleSpy</h1>
-              <p class="description">
-                Instantly analyze and copy CSS from any webpage element.
-              </p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-speed-boost.svg" alt="SpeedBoost">
-            </figure>
-            <article>
-              <h1 class="card-title">SpeedBoost</h1>
-              <p class="description">
-                Optimizes browser resource usage to accelerate page loading.
-              </p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-json-wizard.svg" alt="JSONWizard">
-            </figure>
-            <article>
-              <h1 class="card-title">JSONWizard</h1>
-              <p class="description">
-                Formats, validates, and prettifies JSON responses in-browser.
-              </p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-tab-master-pro.svg" alt="TabMaster">
-            </figure>
-            <article>
-              <h1 class="card-title">TabMaster Pro</h1>
-              <p class="description">
-                Organizes browser tabs into groups and sessions.
-              </p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-viewport-buddy.svg" alt="ViewportBuddy">
-            </figure>
-            <article>
-              <h1 class="card-title">ViewportBuddy</h1>
-              <p class="description">
-                Simulates various screen resolutions directly within the browser.
-              </p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-markup-notes.svg" alt="Markup">
-            </figure>
-            <article>
-              <h1 class="card-title">Markup Notes</h1>
-              <p class="description">
-                Enables annotation and notes directly onto webpages for collaborative debugging.
-              </p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-grid-guides.svg" alt="GridGuides">
-            </figure>
-            <article>
-              <h1 class="card-title">GridGuides</h1>
-              <p class="description">
-                Overlay customizable grids and alignment guides on any webpage.
-              </p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-palette-picker.svg" alt="palettes">
-            </figure>
-            <article>
-              <h1 class="card-title">Palette Picker</h1>
-              <p class="description">
-                Instantly extracts color palettes from any webpage.
-              </p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-link-checker.svg" alt="LinkChecker">
-            </figure>
-            <article>
-              <h1 class="card-title">LinkChecker</h1>
-              <p class="description">
-                Scans and highlights broken links on any page.
-              </p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-dom-snapshot.svg" alt="Snapshot">
-            </figure>
-            <article>
-              <h1 class="card-title">DOM Snapshot</h1>
-              <p class="description">Capture and export DOM structures quickly.</p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sub-title">
-            <figure class="icon">
-              <img src="./images/logo-console-plus.svg" alt="ConsolePlus">
-            </figure>
-            <article>
-              <h1 class="card-title">ConsolePlus</h1>
-              <p class="description">Enhanced developer console with advanced filtering and logging.</p>
-            </article>
-          </div>
-
-          <div class="controler">
-            <button class="remove">Remove</button>
-            <div class="switch">
-              <input type="radio" name="" id="">
-              <div class="slider"></div>
-            </div>
-          </div>
-      </div>
+        </div> -->
     </section>
   </main>
 
